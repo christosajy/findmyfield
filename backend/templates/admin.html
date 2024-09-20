@@ -89,29 +89,13 @@
 
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item nav-date dropdown">
-                        <a class="nav-link d-flex justify-content-center align-items-center" href="javascript:;">
-                            <h6 class="date mb-0">Today : Mar 23</h6>
+                        <span class="nav-link d-flex justify-content-center align-items-center">
                             <i class="typcn typcn-calendar"></i>
-                        </a>
+                            <h6 class="date mb-0" id="dateDisplay"></h6>
+                        </span>
                     </li>
+
                     {% if request.session.username %}
-                    <li class="nav-item dropdown">
-                        <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center"
-                            id="messageDropdown" href="#" data-toggle="dropdown">
-                            <i class="typcn typcn-cog-outline mx-0"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                            aria-labelledby="messageDropdown">
-                            <a class="dropdown-item preview-item" href="{% url 'admin_logout' %}">
-                                <div class="preview-item-content flex-grow">
-                                    <h6 class="preview-subject font-weight-normal">
-                                        <span class="text-primary font-500">Logout</span>
-                                        <i class="fa-solid fa-right-from-bracket"></i>
-                                    </h6>
-                                </div>
-                            </a>
-                        </div>
-                    </li>
                     <li class="nav-item dropdown mr-0">
                         <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center"
                             id="notificationDropdown" href="#" data-toggle="dropdown">
@@ -161,6 +145,13 @@
                                 </div>
                             </a>
                         </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link d-flex justify-content-center align-items-center bg-primary" title="Logout"
+                            href="{% url 'admin_logout' %}">
+                            <i class="fa-solid fa-right-from-bracket text-yellow"></i>
+                        </a>
                     </li>
                     {% endif %}
                 </ul>
@@ -935,6 +926,25 @@
     {% endfor %}
     {% endif %}
 
+    <script>
+        const today = new Date();
+        // Format date to "DD MONTH YYYY"
+        const day = String(today.getDate()).padStart(2, '0'); // e.g., "20"
+        const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+        const monthString = monthNames[today.getMonth()]; // e.g., "SEPT"
+        const year = today.getFullYear(); // e.g., "2024"
+        const dateString = `${day} ${monthString} ${year}`; // e.g., "20 SEPT 2024"
+
+        // Get the weekday
+        const options = { weekday: 'long' };
+        const dayString = today.toLocaleDateString('en-US', options); // e.g., "Friday"
+
+        // Update the HTML
+        const dateDisplay = document.getElementById('dateDisplay');
+        dateDisplay.innerHTML = `${dateString} - ${dayString}`;
+
+
+    </script>
 </body>
 
 </html>

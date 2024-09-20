@@ -10,6 +10,10 @@
     color: #005555 !important;
 }
 
+.text-yellow {
+    color: #FFE600 !important;
+}
+
 .hidden {
     visibility: hidden;
 }

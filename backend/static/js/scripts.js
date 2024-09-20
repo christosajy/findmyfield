@@ -79,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //==========================================================================================================\\
 
-
 $(document).ready(function () {
     // Initially hide the elements
     $(".show-grid").hide();
@@ -100,3 +99,6 @@ $(document).ready(function () {
         $(".btn-show").show();
     });
 });
+
+//==========================================================================================================\\
+
