@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+<title>Our Terms</title>
+{% endblock %}
+
+{% block content %}
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
+
+<nav class="site-nav">
+    <div class="container">
+        <div class="menu-bg-wrap">
+            <div class="site-navigation">
+                <a href="{% url 'frontindex' %}">
+                    <img src="{% static 'logo/nav-logo-light.png' %}" alt="Logo" class="nav-logo">
+                </a>
+
+                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                    <li><a href="{% url 'frontindex' %}">Home</a></li>
+                    <li><a href="{% url 'view_all' %}">Grounds</a></li>
+                    <li><a href="{% url 'services' %}">Services</a></li>
+                    <li><a href="{% url 'about_us' %}">About</a></li>
+                    <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                </ul>
+
+                <a href="#" data-toggle="collapse" data-target="#main-navbar"
+                    class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="hero page-inner overlay overlay-5">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-9 text-center mt-5">
+                <h1 class="heading" data-aos="fade-up">Terms and Conditions</h1>
+
+                <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
+                    <ol class="breadcrumb text-center justify-content-center">
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'frontindex' %}">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active text-white-50" aria-current="page">
+                            <span>Terms and Conditions</span>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <!-- <div class="row mb-5 align-items-center">
+            <div class="col-lg-6 text-center mx-auto">
+                <h2 class="font-weight-bold text-primary heading">Our Terms & Conditions</h2>
+            </div>
+        </div> -->
+
+        <div class="row">
+            <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+                <div class="contact-info">
+                    <div class="address mt-2">
+                        <i class="icon-room"></i>
+                        <h4 class="mb-2">Location:</h4>
+                        <a href="https://maps.app.goo.gl/psMMSpt9QfDk7zfp6" target="_blank">
+                            <p class="meta">
+                                <span>Near Civil Station, Kakkanad,</span> <br>
+                                <span> Kochi, Kerala, India</span>
+                            </p>
+                        </a>
+                    </div>
+
+                    <div class="open-hours mt-4">
+                        <i class="icon-clock-o"></i>
+                        <h4 class="mb-2">Open Hours:</h4>
+                        <p class="meta">
+                            <span>Monday - Saturday:</span> <br>
+                            <span>10:00 AM - 06:00 PM</span>
+                        </p>
+                    </div>
+
+                    <div class="email mt-4">
+                        <i class="icon-envelope"></i>
+                        <h4 class="mb-2">Email:</h4>
+                        <a href="mailto:rentiumindia@gmail.com" title="Email Rentium India">
+                            <p class="meta">rentiumindia@gmail.com,</p>
+                        </a>
+                        <a href="mailto:rentiumglobal@business.org" title="Email Rentium Global">
+                            <p class="meta">rentiumglobal@business.org</p>
+                        </a>
+                    </div>
+
+                    <div class="phone mt-4">
+                        <i class="icon-phone"></i>
+                        <h4 class="mb-2">Call:</h4>
+                        <a href="tel:+919947562562" title="Call +91-9947562562">
+                            <p class="meta">Tel: +91-9947 562 562,</p>
+                        </a>
+                        <a href="tel:+911800562562" title="Call Our Toll Free Number">
+                            <p class="meta">Toll Free: 1800-562-562</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-tm-6 col-lg-6">
+                <div class="top-section col-12 mb-4">
+                    <h5 class="mb-3">General Conditions</h5>
+                    <ol>
+                        <li class="meta text-justify mb-3">
+                            <span class="text-primary font-600">findmyfield.com</span> booking website has these terms
+                            and conditions to govern your use of the and any related
+                            <a href="{% url 'services' %}" class="meta" target="_blank">Services</a> provided by us.
+                        </li>
+                        <li class="meta text-justify mb-3">
+                            By accessing our website and using our Services, you acknowledge that you have read,
+                            understood, and agree to these Terms. To book a stadium, you must provide accurate and
+                            complete information as requested during the booking process.
+                        </li>
+                        <li class="meta text-justify mb-3">
+                            All bookings are subject to availability and confirmation by payments for bookings must be
+                            made using the payment methods accepted on our website. Full payment is required at the time
+                            of booking unless otherwise stated.
+                        </li>
+                        <li class="meta text-justify mb-3">
+                            Any fees or charges associated with booking are non-refundable, except as required by law or
+                            as specified in our cancellation policy. Cancellations must be made in accordance with our
+                            cancellation policy, which is detailed on our website.
+                        </li>
+                        <li class="meta text-justify mb-3">
+                            Refunds, if applicable, will be processed in accordance with our refund policy. Processing
+                            times may vary. We reserve the right to cancel bookings at our discretion and will provide a
+                            full refund in such cases.
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="liability-section col-12">
+                    <h5 class="mb-3">Liability and Governing Law</h5>
+                    <ol>
+                        <li class="meta">
+                            <span class="text-primary font-600">findmyfield.com</span> company is not liable for
+                            any indirect, incidental, or consequential damages arising out of or related to the use of
+                            our website or Services. We are not responsible for any loss or damage to personal property
+                            during inside the stadium.
+                        </li>
+                        <hr>
+                        <li class="meta">
+                            These Terms and conditions are governed by and construed in accordance with the
+                            <a href="https://lawcommissionofindia.nic.in/" class="meta" target="_blank">
+                                laws of Government of India</a>. Any disputes arising from these Terms or your use of
+                            our website and Services shall be resolved only in the courts of India.
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="liability-section col-12">
+                    <h5 class="mb-3">Miscellaneous</h5>
+                    <ol>
+                        <li class="meta">
+                            These Terms constitute the entire agreement between you and
+                            <span class="text-primary font-600">findmyfield.com</span> regarding the use of our website
+                            and Services. If any provision of these Terms is found to be invalid or unenforceable, the
+                            remaining provisions will remain in full force and effect. Failure to enforce any right or
+                            provision of these Terms will not be deemed a waiver of such right or provision.
+                        </li>
+                        <hr>
+                        <li class="meta">
+                            Feel free to adapt this sample to fit your specific needs and consult with a legal
+                            professional to ensure it meets all necessary legal requirements.
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+<title>Contact Us</title>
+{% endblock %}
+
+{% block content %}
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
+
+<nav class="site-nav">
+    <div class="container">
+        <div class="menu-bg-wrap">
+            <div class="site-navigation">
+                <a href="{% url 'frontindex' %}">
+                    <img src="{% static 'logo/nav-logo-light.png' %}" alt="Logo" class="nav-logo">
+                </a>
+
+                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                    <li><a href="{% url 'frontindex' %}">Home</a></li>
+                    <li><a href="{% url 'view_all' %}">Grounds</a></li>
+                    <li><a href="{% url 'services' %}">Services</a></li>
+                    <li><a href="{% url 'about_us' %}">About</a></li>
+                    <li class="active"><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                </ul>
+
+                <a href="#" data-toggle="collapse" data-target="#main-navbar"
+                    class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="hero page-inner overlay overlay-5">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-9 text-center mt-5">
+                <h1 class="heading" data-aos="fade-up">Contact Us</h1>
+
+                <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
+                    <ol class="breadcrumb text-center justify-content-center">
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'frontindex' %}">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active text-white-50" aria-current="page">Contact</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <div class="row mb-5 align-items-center">
+            <div class="col-lg-9 text-center">
+                <h2 class="text-primary heading contact-head">Send Feedback</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+                <div class="contact-info">
+                    <div class="address mt-2">
+                        <i class="icon-room"></i>
+                        <h4 class="mb-2">Location:</h4>
+                        <a href="https://maps.app.goo.gl/psMMSpt9QfDk7zfp6" target="_blank">
+                            <p class="meta">
+                                <span>Near Civil Station, Kakkanad,</span> <br>
+                                <span> Kochi, Kerala, India</span>
+                            </p>
+                        </a>
+                    </div>
+
+                    <div class="open-hours mt-4">
+                        <i class="icon-clock-o"></i>
+                        <h4 class="mb-2">Open Hours:</h4>
+                        <p class="meta">
+                            <span>Monday - Saturday:</span> <br>
+                            <span>10:00 AM - 06:00 PM</span>
+                        </p>
+                    </div>
+
+                    <div class="email mt-4">
+                        <i class="icon-envelope"></i>
+                        <h4 class="mb-2">Email:</h4>
+                        <a href="mailto:careers@findmyfield.com">
+                            <p class="meta">careers@findmyfield.com,</p>
+                        </a>
+                        <a href="mailto:hr@findmyfield.com">
+                            <p class="meta">hr@findmyfield.com</p>
+                        </a>
+                    </div>
+
+                    <div class="phone mt-4">
+                        <i class="icon-phone"></i>
+                        <h4 class="mb-2">Call:</h4>
+                        <a href="tel:+919947562562" title="Call +91-9947562562">
+                            <p class="meta">Tel: +91-9947 562 562,</p>
+                        </a>
+                        <a href="tel:+911800562562" title="Call Our Toll Free Number">
+                            <p class="meta">Toll Free: 1800-562-562</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+                <form action="{% url 'send_contact_message' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <input type="text" name="name" class="form-control" placeholder="Your Name">
+                        </div>
+
+                        <div class="col-6 mb-3">
+                            <input type="email" name="mail" class="form-control" placeholder="Your Email"
+                                required="required">
+                        </div>
+
+                        <div class="col-12 mb-3">
+                            <input type="text" name="sub" class="form-control" placeholder="Subject">
+                        </div>
+
+                        <div class="col-12 mb-3">
+                            <textarea name="feed" class="form-control" cols="30" rows="7" placeholder="Feedback"
+                                required="required"></textarea>
+                        </div>
+
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary send-btn">
+                                <span class="text-uppercase">Send Message</span>
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

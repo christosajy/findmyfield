@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+<title>FAQ</title>
+{% endblock %}
+
+{% block content %}
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
+
+<nav class="site-nav">
+    <div class="container">
+        <div class="menu-bg-wrap">
+            <div class="site-navigation">
+                <a href="{% url 'frontindex' %}">
+                    <img src="{% static 'logo/nav-logo-light.png' %}" alt="Logo" class="nav-logo">
+                </a>
+
+                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                    <li><a href="{% url 'frontindex' %}">Home</a></li>
+                    <li><a href="{% url 'view_all' %}">Grounds</a></li>
+                    <li><a href="{% url 'services' %}">Services</a></li>
+                    <li><a href="{% url 'about_us' %}">About</a></li>
+                    <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                </ul>
+
+                <a href="#" data-toggle="collapse" data-target="#main-navbar"
+                    class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="hero page-inner overlay overlay-5">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-9 text-center mt-5">
+                <h1 class="heading" data-aos="fade-up">Frequently Asked Questions</h1>
+
+                <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
+                    <ol class="breadcrumb text-center justify-content-center">
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'frontindex' %}">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active text-white-50" aria-current="page">
+                            <span>Frequently Asked Questions</span>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+                <div class="contact-info">
+                    <div class="address mt-2">
+                        <i class="icon-room"></i>
+                        <h4 class="mb-2">Location:</h4>
+                        <a href="https://maps.app.goo.gl/psMMSpt9QfDk7zfp6" target="_blank">
+                            <p class="meta">
+                                <span>Near Civil Station, Kakkanad,</span> <br>
+                                <span> Kochi, Kerala, India</span>
+                            </p>
+                        </a>
+                    </div>
+
+                    <div class="open-hours mt-4">
+                        <i class="icon-clock-o"></i>
+                        <h4 class="mb-2">Open Hours:</h4>
+                        <p class="meta">
+                            <span>Monday - Saturday:</span> <br>
+                            <span>10:00 AM - 06:00 PM</span>
+                        </p>
+                    </div>
+
+                    <div class="email mt-4">
+                        <i class="icon-envelope"></i>
+                        <h4 class="mb-2">Email:</h4>
+                        <a href="mailto:rentiumindia@gmail.com" title="Email Rentium India">
+                            <p class="meta">rentiumindia@gmail.com,</p>
+                        </a>
+                        <a href="mailto:rentiumglobal@business.org" title="Email Rentium Global">
+                            <p class="meta">rentiumglobal@business.org</p>
+                        </a>
+                    </div>
+
+                    <div class="phone mt-4">
+                        <i class="icon-phone"></i>
+                        <h4 class="mb-2">Call:</h4>
+                        <a href="tel:+919947562562" title="Call +91-9947562562">
+                            <p class="meta">Tel: +91-9947 562 562,</p>
+                        </a>
+                        <a href="tel:+911800562562" title="Call Our Toll Free Number">
+                            <p class="meta">Toll Free: 1800-562-562</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-tm-6 col-lg-6">
+                <div class="liability-section col-12">
+                    <h4 class="mb-3">Frequently Asked Questions (FAQs)</h4>
+                    <ol>
+                        <li class="meta">
+                            <h5>1. What is findmyfield.com?</h5>
+                            <span class="text-golden font-600">findmyfield.com</span> is an online platform designed to
+                            help you find and book sports stadiums, fields, and arenas for various events and
+                            activities. Whether you're organizing a local league game, a charity event, or a large-scale
+                            tournament, we make it easy to find the perfect venue.
+                        </li>
+                        <hr>
+                        <li class="meta">
+                            <h5>2. How do I search for a stadium or field?</h5>
+                            To search for a stadium or field, simply enter your location, desired date, and any specific
+                            requirements into the search bar on our homepage. You can filter results based on amenities,
+                            capacity, and other factors to find the best venue for your needs.
+                        </li>
+                        <hr>
+                        <li class="meta">
+                            <h5>3. How can I book a stadium or field?</h5>
+                            Once you've found a venue you like, click on the "Book Now" button. You'll be prompted to
+                            provide event details and payment information. After completing the booking process, you'll
+                            receive a confirmation email with all the necessary details.
+                        </li>
+                        <hr>
+                        <li class="meta">
+                            <h5>4. Can I cancel or modify my booking?</h5>
+                            Yes, you can cancel or modify your booking through your account dashboard. Cancellation and
+                            modification policies vary by venue, so please check the specific terms associated with your
+                            booking. For assistance, you can also contact our customer support team.
+                        </li>
+                        <hr>
+                        <li class="meta">
+                            <h5>5. What payment methods do you accept?</h5>
+                            We accept various payment methods including credit/debit cards and online payment systems
+                            like PayPal. All transactions are securely processed.
+                        </li>
+                        <hr>
+                        <li class="meta">
+                            <h5>6. Are there any additional fees?</h5>
+                            In addition to the venue rental fee, there may be additional fees for services such as
+                            catering, equipment rental, or parking. These fees will be clearly outlined during the
+                            booking process.
+                        </li>
+                        <hr>
+                        <li class="meta">
+                            <h5>7. How do I know if a venue is available on my desired date?</h5>
+                            Our platform shows real-time availability for each venue. When you search for a venue,
+                            you'll see available dates and times. If a venue is already booked for your desired date,
+                            you can choose alternative dates or contact the venue directly for possible adjustments.
+                        </li>
+                        <hr>
+                        <li class="meta">
+                            <h5>8. Can I visit a venue before booking?</h5>
+                            Many venues offer site visits. You can contact the venue directly through our platform to
+                            schedule a tour and assess the facilities before finalizing your booking.
+                        </li>
+                        <hr>
+                        <li class="meta">
+                            <h5>9. What should I do if I encounter an issue with my booking?</h5>
+                            If you encounter any issues with your booking, please contact our customer support team
+                            immediately. We are here to assist you with any problems or concerns you may have.
+                        </li>
+                        <hr>
+                        <li class="meta">
+                            <h5>10. How can I become a venue partner?</h5>
+                            If you own or manage a stadium, field, or arena and would like to list it on
+                            FindMyField.com, please visit our "Become a Partner" page for more information on how to get
+                            started.
+                        </li>
+                        <hr>
+                        <li class="meta">
+                            <h5>11. Is my personal information secure?</h5>
+                            Yes, we take your privacy seriously. All personal and payment information is encrypted and
+                            securely stored. We adhere to strict data protection policies to ensure your information is
+                            safe.
+                        </li>
+                        <hr>
+                        <li class="meta">
+                            <h5>12. How can I contact customer support?</h5>
+                            You can reach our customer support team via email at support@findmyfield.com or through our
+                            live chat feature on the website. Our support hours are from 9 AM to 6 PM, Monday through
+                            Friday.
+                        </li>
+                        <hr>
+                        <li class="meta">
+                            <h5>13. Can I leave a review for a venue?</h5>
+                            Yes, after your event, you can leave a review for the venue to help others make informed
+                            decisions. Your feedback is valuable and helps improve our services.
+                        </li>
+                        <hr>
+                        <li class="meta">
+                            <h5>14. Are there any discounts or promotions available?</h5>
+                            Occasionally, we offer discounts and promotions for specific venues or events. To stay
+                            updated on current offers, sign up for our newsletter or check our "Special Offers" section
+                            on the website.
+                        </li>
+                        <hr>
+                        <li class="meta">
+                            <h5>15. What if I need special accommodations or services?</h5>
+                            If you require special accommodations or services, please include this information when
+                            making your booking or contact the venue directly. Most venues are happy to accommodate
+                            specific needs to ensure a successful event.
+                        </li>
+                        <hr>
+                        <li class="meta">
+                            <h5>16. Can I book a stadium for a private event?</h5>
+                            Yes, many stadiums offer options for private events such as corporate functions,
+                            weddings, or parties. You should contact the stadium’s event management team to discuss your
+                            needs and availability.
+                        </li>
+                        <hr>
+                        <li class="meta">
+                            <h5>17. Are there any restrictions on the types of events that can be held?</h5>
+                            Some stadiums have restrictions based on their facilities or local regulations. Common
+                            restrictions might include noise levels, types of performances, or the nature of the event.
+                            Check with the stadium management for any specific guidelines.
+                        </li>
+                        <hr>
+                        <li class="meta">
+                            <h5>18. How early should I book a stadium for my event?</h5>
+                            It's generally recommended to book as early as possible, especially for popular dates.
+                            Stadiums can be in high demand, so securing your booking well in advance increases the
+                            chances of availability.
+                        </li>
+                        <hr>
+                        <li class="meta">
+                            <h5>19. What amenities are included with the booking?</h5>
+                            Amenities vary by stadium but may include seating arrangements, lighting, sound systems, and
+                            restrooms. Some stadiums also offer additional services such as catering, security, and
+                            parking. Confirm what is included and what might require additional fees.
+                        </li>
+                        <hr>
+                        <li class="meta">
+                            <h5>20. How early should I book a stadium for my event?</h5>
+                            It's generally recommended to book as early as possible, especially for popular dates.
+                            Stadiums can be in high demand, so securing your booking well in advance increases the
+                            chances of availability.
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

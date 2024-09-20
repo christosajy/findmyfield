@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+<title>{{career.name}}</title>
+{% endblock %}
+
+{% block content %}
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
+
+<nav class="site-nav">
+    <div class="container">
+        <div class="menu-bg-wrap">
+            <div class="site-navigation">
+                <a href="{% url 'frontindex' %}">
+                    <img src="{% static 'logo/nav-logo-light.png' %}" alt="Logo" class="nav-logo">
+                </a>
+
+                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                    <li><a href="{% url 'frontindex' %}">Home</a></li>
+                    <li><a href="{% url 'view_all' %}">Grounds</a></li>
+                    <li><a href="{% url 'services' %}">Services</a></li>
+                    <li><a href="{% url 'about_us' %}">About</a></li>
+                    <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                </ul>
+
+                <a href="#" data-toggle="collapse" data-target="#main-navbar"
+                    class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="hero page-inner overlay underlay-1">
+
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-9 text-center mt-5">
+                <h1 class="heading" data-aos="fade-up">Apply for Job</h1>
+
+                <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
+                    <ol class="breadcrumb text-center justify-content-center">
+                        <li class="breadcrumb-item active font-500 text-uppercase" aria-current="page">
+                            <span class="text-white">{{career.name}}</span>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section bg-light">
+    <div class="container">
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-9 mx-auto">
+                <h2 class="heading">{{career.name}}</h2>
+                <div class="career-filter-flex">
+                    <h6 class="zeta mt-2">
+                        <i class="fa-solid fa-map-pin"></i>
+                        <span>{{career.experience}}</span>
+                    </h6>
+                    <h6 class="zeta mt-2">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>{{career.place}}</span>
+                    </h6>
+                </div>
+            </div>
+            <div class="col-lg-9 mx-auto filter-career mt-3">
+                <h5>Description:</h5>
+                <p class="meta text-left mb-4">{{career.description}}</p>
+                <h5>Requirements:</h5>
+                <p class="meta mb-2">{{career.requirements}}</p>
+                <h6 class="meta mt-3">{{career.salary}} a month</h6>
+                <div class="filter-career-date mt-5 mb-3">
+                    <span class="zeta font-500">Posted On: {{career.posted_date}}</span>
+                    <span class="zeta font-500">Ending On: {{career.closing_date}}</span>
+                </div>
+                <a href="" class="btn btn-primary career-btn d-none">Apply Now</a>
+            </div>
+        </div>
+        <div class="col-lg-9 mx-auto">
+            <hr>
+        </div>
+
+        <div class="row align-items-center mt-5 mb-3">
+            <div class="col-lg-9 mx-auto">
+                <h5 class="heading">Submit form to apply for the job of {{career.name}}</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-9 mx-auto" data-aos="fade-up" data-aos-delay="200">
+                <form action="{% url 'save_careers_filtered' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <label>Applicant Name</label>
+                            <input type="text" name="name" class="form-control" placeholder="Applicant Name"
+                                required="required">
+                        </div>
+
+                        <div class="col-6 mb-3">
+                            <label>Contact Number</label>
+                            <input type="text" name="contact" class="form-control" placeholder="Contact Number"
+                                required="required">
+                        </div>
+
+                        <div class="col-6 mb-3">
+                            <label>Email ID</label>
+                            <input type="email" name="email" class="form-control" placeholder="Email ID Address"
+                                required="required">
+                        </div>
+
+                        <div class="col-6 mb-3">
+                            <label>Whatsapp Number</label>
+                            <input type="text" name="whatsapp" class="form-control" placeholder="Whatsapp Number">
+                        </div>
+
+                        <div class="col-6 mb-3">
+                            <label>Qualification with Stream</label>
+                            <input type="text" name="qualification" class="form-control" placeholder="Qualification"
+                                required="required">
+                        </div>
+
+                        <div class="col-6 mb-3">
+                            <label>University</label>
+                            <input type="text" name="university" class="form-control" placeholder="University">
+                        </div>
+
+                        <div class="col-6 mb-3">
+                            <label>Home Location</label>
+                            <input type="text" name="location" class="form-control" placeholder="Home Location"
+                                required="required">
+                        </div>
+
+                        <div class="col-6 mb-3">
+                            <label>Experience Level</label>
+                            <input type="text" name="experience" class="form-control" placeholder="Experience Level"
+                                required="required">
+                        </div>
+
+                        <div class="col-6 mb-3">
+                            <label>Are you ready to relocate to our Location?</label>
+                            <select class="form-control" name="ready_to_relocate" required="required">
+                                <option value="True">True</option>
+                                <option value="False">False</option>
+                            </select>
+                        </div>
+
+                        <div class="col-6 mb-3">
+                            <label>Upload Resume</label>
+                            <input type="file" name="resume" class="form-control" accept=".pdf" required="required">
+                        </div>
+
+                        <div class="col-12 mb-3 d-none">
+                            <input type="text" name="job_applied" class="form-control" value="{{career.name}}">
+                        </div>
+
+                        <div class="col-12 my-2">
+                            <button type="submit" class="btn btn-primary send-btn">
+                                <span class="text-uppercase">Submit Form</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <p class="meta text-justify mt-3">
+                    <span class="font-600">Note: </span>Processing your request typically takes between 4 to 14 working
+                    days. During this period, our team will thoroughly review your submission to ensure all details are
+                    accurate. We will then get in touch with you using the contact number or email address you provided.
+                    If you have any questions or need further assistance at any stage of this process, please do not
+                    hesitate to reach out to us. For any additional inquiries or support, you can contact us directly.
+                    We are here to assist you and ensure that your request is processed smoothly.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

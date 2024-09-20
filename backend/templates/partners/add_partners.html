@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% extends 'admin.html' %}
+{% load static %}
+{% block content %}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">ADD PARTNERS</h4>
+            <form class="form-sample" method="POST" action="{% url 'save_partners' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <p class="card-description">Add all Job Openings</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <span class="col-sm-12 col-form-label">Partner Name</span>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-sector" name="name" required="required"
+                                    placeholder="Partner Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <span class="col-sm-12 col-form-label">Partner Image</span>
+                            <div class="col-sm-12">
+                                <input type="file" class="form-sector" name="image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-info mr-2">
+                        <i class="fa-solid fa-square-check"></i>
+                        <span>SUBMIT</span>
+                    </button>
+
+                    <button class="btn btn-danger" type="reset">
+                        <i class="fa-solid fa-square-xmark"></i>
+                        <span>CANCEL</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

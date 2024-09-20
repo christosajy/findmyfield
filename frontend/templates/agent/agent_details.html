@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+<title>Agent Details: {{agent.name}}</title>
+{% endblock %}
+
+{% block content %}
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
+
+<nav class="site-nav">
+    <div class="container">
+        <div class="menu-bg-wrap">
+            <div class="site-navigation">
+                <a href="{% url 'frontindex' %}">
+                    <img src="{% static 'logo/nav-logo-light.png' %}" alt="Logo" class="nav-logo">
+                </a>
+
+                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                    <li><a href="{% url 'frontindex' %}">Home</a></li>
+                    <li><a href="{% url 'view_all' %}">Grounds</a></li>
+                    <li><a href="{% url 'services' %}">Services</a></li>
+                    <li><a href="{% url 'about_us' %}">About</a></li>
+                    <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                </ul>
+
+                <a href="#" data-toggle="collapse" data-target="#main-navbar"
+                    class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="hero page-inner overlay overlay-5">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-9 text-center mt-5">
+                <h1 class="heading" data-aos="fade-up">Agent Details</h1>
+
+                <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
+                    <ol class="breadcrumb text-center justify-content-center">
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'frontindex' %}">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">
+                            <span>Agent: <span class="text-uppercase">{{agent.name}}</span></span>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <div class="row agent-row">
+            <div class="col-lg-9">
+                <h2 class="heading contact-head">Agent Contact Details</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="section pt-0">
+                <div class="container">
+                    <div class="row justify-content-between mb-5">
+                        <div class="col-lg-7 mb-5 mb-lg-0 order-lg-2">
+                            <div class="img-about dots">
+                                <img src="{% static 'images/about_1.jpg' %}" alt="Image" class="img-fluid img-sector">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+                            <div class="agent-info contact-info">
+                                <div class="address mt-2">
+                                    <i class="icon-id-card"></i>
+                                    <h4 class="mb-2">Name:</h4>
+                                    <p class="meta text-uppercase">{{agent.name}}</p>
+                                </div>
+
+                                <div class="email mt-4">
+                                    <i class="icon-envelope"></i>
+                                    <h4 class="mb-2">Email:</h4>
+                                    <a href="mailto:{{agent.email}}">
+                                        <p class="meta">{{agent.email}}</p>
+                                    </a>
+                                </div>
+
+                                <div class="phone mt-4">
+                                    <i class="icon-phone"></i>
+                                    <h4 class="mb-2">Contact:</h4>
+                                    <a href="tel:{{agent.phone}}">
+                                        <p class="meta">{{agent.phone}}</p>
+                                    </a>
+                                </div>
+
+                                <div class="phone mt-4">
+                                    <i class="icon-whatsapp"></i>
+                                    <h4 class="mb-2">Whatsapp:</h4>
+                                    <a href="https://wa.me/{{agent.phone}}" target="_blank">
+                                        <p class="meta">{{agent.phone}}</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

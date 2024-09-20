@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+{% extends 'admin.html' %}
+{% load static %}
+{% block content %}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">VIEW USER TESTIMONIALS</h4>
+
+            <div class="btn-group view-hide-btn" role="group"> 
+                <button type="button" class="btn" title="Collapse Table" id="hide-btn">
+                    <i class="fa-solid fa-eye-slash"></i>
+                </button>
+                <button type="button" class="btn" title="Expand Table" id="show-btn">
+                    <i class="fa-solid fa-eye"></i>
+                </button>
+            </div>
+            <a href="{% url 'delete_all_feedback' %}" class="btn btn-primary delete-all">
+                <i class="fa-solid fa-trash"></i><span class="ml-1">ALL</span>
+            </a>
+        
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Profession</th>
+                            <th>Email</th>
+                            <th>Date & Time</th>
+                            <th>Feedback</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in feed %}
+                        <tr>
+                            <td>{{i.name}}</td>
+                            <td>{{i.profession}}</td>
+                            <td>{{i.email}}</td>
+                            <td>{{i.datetime}}</td>
+                            <td class="toggle-elements" style="white-space: pre-line;">{{i.feedback}}</td>
+                            <td>
+                                <form action="{% url 'delete_testimonial' feed_id=i.id %}">
+                                    <button type="submit" class="btn btn-danger" title="Delete">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+{% if messages %}
+{% for i in messages %}
+{% if i.tags == 'success' %}
+<script>
+    swal('{{i}}', '', 'success')
+</script>
+{% elif i.tags == 'warning' %}
+<script>
+    swal('{{i}}', '', 'warning')
+</script>
+{% elif i.tags == 'success' %}
+<script>
+    swal('{{i}}', '', 'success')
+</script>
+{% else %}
+<script>
+    swal('{{i}}', '', 'info')
+</script>
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% endblock %}

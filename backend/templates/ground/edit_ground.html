@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+{% extends 'admin.html' %}
+{% load static %}
+{% block content %}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">GROUNDS</h4>
+            <form class="form-sample" method="POST" action="{% url 'update_ground' ground_id=ground.id %}"
+                enctype="multipart/form-data">
+                {% csrf_token %}
+                <p class="card-description">Edit all Information regarding grounds</p>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-sector" name="name" value="{{ground.name}}"
+                                    required="required" placeholder="Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label" style="font-size: 13px;">Capacity</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-sector" name="capacity" value="{{ground.capacity}}"
+                                    required="required" placeholder="Total Capacity">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Rate</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="rate" class="form-sector" value="{{ground.rate}}"
+                                    required="required" placeholder="Rate of Lease per Day">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Locality</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="locality" class="form-sector" value="{{ground.locality}}"
+                                    required="required" placeholder="Locality Eg: Delhi, Nyc etc.">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Country</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="country" class="form-sector" value="{{ground.country}}"
+                                    required="required" placeholder="Country; Eg: UK, India etc.">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Suites</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="suite" class="form-sector" value="{{ground.suite}}"
+                                    required="required" placeholder="Total Executive Suites">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Agent</label>
+                            <div class="col-sm-9">
+                                <select name="agent" class="form-sector" required="required">
+                                    <option value="{{ground.agent}}">{{ground.agent}}</option>
+                                    <option value="__________">__________</option>
+                                    {% for i in agent %}
+                                    <option value="{{i.name}}">{{i.name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Web</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="web_link" class="form-sector" value="{{ground.web_link}}"
+                                    required="required" placeholder="Website or wikipedia Link">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Map</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="map_link" class="form-sector" value="{{ground.map_link}}"
+                                    required="required" placeholder="Map Link">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Address</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-sector" name="address" placeholder="Address" required="required"
+                                    style="height: 8rem;">{{ground.address}}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Summary</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-sector" name="summary" placeholder="Summary" required="required"
+                                    style="height: 8rem;">{{ground.summary}}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Booking</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="booking" class="form-sector" value="{{ground.booking}}"
+                                    required="required" placeholder="Map Link">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Image I</label>
+                            <div class="col-sm-9">
+                                <input type="file" name="image_1" class="form-sector">
+                                <img src="{{ground.image_1.url}}" class="form-img" alt="Image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Image II</label>
+                            <div class="col-sm-9">
+                                <input type="file" name="image_2" class="form-sector">
+                                <img src="{{ground.image_2.url}}" class="form-img" alt="Image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-info mr-2">
+                        <i class="fa-solid fa-square-check"></i>
+                        <span>Update</span>
+                    </button>
+
+                    <button class="btn btn-danger" type="reset">
+                        <i class="fa-solid fa-square-xmark"></i>
+                        <span>Cancel</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

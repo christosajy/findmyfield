@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Admin Login</title>
+    <!-- base:css -->
+    <link rel="stylesheet" href="{% static 'vendors/typicons/typicons.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{% static 'css/vertical-layout-light/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/grid/style.css' %}">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}">
+</head>
+
+<body>
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="content-wrapper d-flex align-items-center auth px-0">
+                <div class="row w-100 mx-0">
+                    <div class="col-lg-4 mx-auto">
+                        <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+                            <div class="text-center">
+                                <h4>Admin Login Interface</h4>
+                            </div>
+                            <form class="pt-3" action="{% url 'admin_login' %}" method="POST">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-lg" name="username"
+                                        placeholder="Username" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-lg" name="password"
+                                        placeholder="Password" required="required">
+                                </div>
+                                <div class="mt-3">
+                                    <button type="submit" class="btn btn-danger btn-block auth-form-btn">
+                                        <span class="mr-1">LOGIN</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content-wrapper ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- font-awesome-version-6  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- base:js -->
+    <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="{% static 'js/off-canvas.js' %}"></script>
+    <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+    <script src="{% static 'js/template.js' %}"></script>
+    <script src="{% static 'js/settings.js' %}"></script>
+    <script src="{% static 'js/todolist.js' %}"></script>
+    <!-- endinject -->
+     <!-- Start Messages for page-->
+    {% if messages %}
+    {% for i in messages %}
+    {% if i.tags == 'success' %}
+    <script>
+        swal('{{i}}', '', 'success')
+    </script>
+    {% elif i.tags == 'warning' %}
+    <script>
+        swal('{{i}}', '', 'warning')
+    </script>
+    {% elif i.tags == 'success' %}
+    <script>
+        swal('{{i}}', '', 'success')
+    </script>
+    {% else %}
+    <script>
+        swal('{{i}}', '', 'info')
+    </script>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+</body>
+
+</html>

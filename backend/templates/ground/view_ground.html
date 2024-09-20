@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+{% extends 'admin.html' %}
+{% load static %}
+{% block content %}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">VIEW GROUNDS</h4>
+
+            <div class="btn-group view-hide-btn" role="group">
+                <button type="button" class="btn" title="Collapse Table" id="hide-btn">
+                    <i class="fa-solid fa-eye-slash"></i>
+                </button>
+                <button type="button" class="btn" title="Expand Table" id="show-btn">
+                    <i class="fa-solid fa-eye"></i>
+                </button>
+            </div>
+
+            <a href="{% url 'remove_all_ground' %}" class="btn btn-dark delete-all">DELETE ALL</a>
+
+            <p class="card-description">All Information regarding grounds</p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Capacity</th>
+                            <th>Rate/Day</th>
+                            <th style="white-space: pre-line;">Booking Advance</th>
+                            <th>Agent</th>
+                            <th class="toggle-elements">Locality</th>
+                            <th class="toggle-elements">Country</th>
+                            <th class="toggle-elements">Executive Suites</th>
+                            <th class="toggle-elements">Website/Wikipedia</th>
+                            <th class="toggle-elements">Map</th>
+                            <th class="toggle-elements">Summary</th>
+                            <th>Image 1</th>
+                            <th>Image 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in ground %}
+                        <tr>
+                            <td style="white-space: pre-line;">{{i.name}}</td>
+                            <td style="white-space: pre-line;">{{i.address}}</td>
+                            <td>{{i.capacity}}</td>
+                            <td>₹{{i.rate}}/-</td>
+                            <td>₹{{i.booking}}/-</td>
+                            <td style="white-space: pre-line;">{{i.agent}}</td>
+                            <td class="toggle-elements">{{i.locality}}</td>
+                            <td class="toggle-elements">{{i.country}}</td>
+                            <td class="toggle-elements">{{i.suite}}</td>
+                            <td class="toggle-elements">
+                                <a href="{{i.web_link}}" target="_blank">{{i.web_link}}</a>
+                            </td>
+                            <td class="toggle-elements">
+                                <a href="{{i.map_link}}" target="_blank">{{i.map_link}}</a>
+                            </td>
+                            <td class="toggle-elements">{{i.summary}}</td>
+                            <td>
+                                <img src="{{i.image_1.url}}" alt="Image 1">
+                            </td>
+                            <td>
+                                <img src="{{i.image_2.url}}" alt="Image 2">
+                            </td>
+                            <td>
+                                <form action="{% url 'edit_ground' ground_id=i.id %}">
+                                    <button type="submit" class="btn btn-success mr-2">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="{% url 'remove_ground' ground_id=i.id %}">
+                                    <button type="submit" class="btn btn-danger">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <td class="text-danger" colspan="13">No Records Found</td>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

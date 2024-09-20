@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% extends 'admin.html' %}
+{% load static %}
+{% block content %}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">VIEW CAREER REQUESTS FROM CANDIDATES</h4>
+
+            <div class="btn-group view-hide-btn" role="group">
+                <button type="button" class="btn" title="Collapse Table" id="hide-btn">
+                    <i class="fa-solid fa-eye-slash"></i>
+                </button>
+                <button type="button" class="btn" title="Expand Table" id="show-btn">
+                    <i class="fa-solid fa-eye"></i>
+                </button>
+            </div>
+            <a href="{% url 'delete_all_careers' %}" class="btn btn-dark delete-all">
+                <span class="mr-1">ALL</span><i class="fa-solid fa-trash"></i>
+            </a>
+
+            <p class="card-description">View all Job Openings</p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="hidden">Applied Job</th>
+                            <th>Name</th>
+                            <th>Contact Number</th>
+                            <th class="toggle-elements">Email ID</th>
+                            <th class="toggle-elements">Whatsapp Number</th>
+                            <th>Qualification</th>
+                            <th class="toggle-elements">University</th>
+                            <th style="white-space: pre-line;">Home Location</th>
+                            <th>Experience</th>
+                            <th class="toggle-elements">Ready to Relocate?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in career %}
+                        <tr>
+                            <td class="text-uppercase font-weight-bold" style="white-space: pre-line;">
+                                <span class="text-danger">{{i.job_applied}}</span>
+                            </td>
+                            <td>{{i.name}}</td>
+                            <td>{{i.contact}}</td>
+                            <td class="toggle-elements">{{i.email}}</td>
+                            <td class="toggle-elements">{{i.whatsapp}}</td>
+                            <td>{{i.qualification}}</td>
+                            <td class="toggle-elements">{{i.university}}</td>
+                            <td style="white-space: pre-line;">{{i.location}}</td>
+                            <td>{{i.experience}}</td>
+                            <td>
+                                <a href="{{i.resume.url}}" target="_blank" class="btn btn-info mr-2">Resume</a>
+                            </td>
+                            <td>
+                                <form action="{% url 'delete_careers' career_id=i.id %}">
+                                    <button type="submit" class="btn btn-danger">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <td class="text-danger">No Records Found</td>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% extends 'admin.html' %}
+{% load static %}
+{% block content %}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">VIEW CAREERS</h4>
+
+            <div class="btn-group view-hide-btn" role="group">
+                <button type="button" class="btn" title="Collapse Table" id="hide-btn">
+                    <i class="fa-solid fa-eye-slash"></i>
+                </button>
+                <button type="button" class="btn" title="Expand Table" id="show-btn">
+                    <i class="fa-solid fa-eye"></i>
+                </button>
+            </div>
+            <a href="{% url 'delete_all_careers' %}" class="btn btn-dark delete-all">
+                <span class="mr-1">ALL</span><i class="fa-solid fa-trash"></i>
+            </a>
+
+            <p class="card-description">View all Job Openings</p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Career Name</th>
+                            <th>Experience</th>
+                            <th>Posted Date</th>
+                            <th>Closing Date</th>
+                            <th>Salary</th>
+                            <th>Place</th>
+                            <th class="toggle-elements">Requirements</th>
+                            <th class="toggle-elements">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in career %}
+                        <tr>
+                            <td style="white-space: pre-line;">{{i.name}}</td>
+                            <td>{{i.experience}}</td>
+                            <td>{{i.posted_date}}</td>
+                            <td>{{i.closing_date}}</td>
+                            <td>{{i.salary}}</td>
+                            <td>{{i.place}}</td>
+                            <td class="toggle-elements">{{i.requirements}}</td>
+                            <td class="toggle-elements">{{i.description}}</td>
+                            <td>
+                                <form action="{% url 'edit_careers' career_id=i.id %}">
+                                    <button type="submit" class="btn btn-success mr-2">
+                                        <i class="fa-solid fa-pen" title="EDIT"></i>
+                                    </button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="{% url 'delete_careers' career_id=i.id %}">
+                                    <button type="submit" class="btn btn-danger">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <td class="text-danger">No Records Found</td>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

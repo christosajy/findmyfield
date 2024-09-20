@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% extends 'admin.html' %}
+{% load static %}
+{% block content %}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">EDIT AGENTS</h4>
+            <form class="form-sample" method="POST" action="{% url 'update_agents' agent_id=agent.id %}">
+                {% csrf_token %}
+                <p class="card-description">Edit all Information regarding Agents</p>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-sector" name="name" value="{{agent.name}}"
+                                    required="required" placeholder="Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Email ID</label>
+                            <div class="col-sm-9">
+                                <input type="email" name="email" class="form-sector" value="{{agent.email}}"
+                                    required="required" placeholder="Email ID">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Phone</label>
+                            <div class="col-sm-9">
+                                <input type="tel" name="phone" class="form-sector" value="{{agent.phone}}"
+                                    required="required" placeholder="Whatsapp linked Phone Number">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Applicant</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-sector" name="applicant" value="{{agent.applicant}}"
+                                    readonly="readonly">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-info mr-2">
+                        <i class="fa-solid fa-square-check"></i>
+                        <span>SUBMIT</span>
+                    </button>
+
+                    <button class="btn btn-danger" type="reset">
+                        <i class="fa-solid fa-square-xmark"></i>
+                        <span>CANCEL</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

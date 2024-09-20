@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+<title>Apply for Agent</title>
+{% endblock %}
+
+{% block content %}
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
+
+<nav class="site-nav">
+    <div class="container">
+        <div class="menu-bg-wrap">
+            <div class="site-navigation">
+                <a href="{% url 'frontindex' %}">
+                    <img src="{% static 'logo/nav-logo-light.png' %}" alt="Logo" class="nav-logo">
+                </a>
+
+                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                    <li><a href="{% url 'frontindex' %}">Home</a></li>
+                    <li><a href="{% url 'view_all' %}">Grounds</a></li>
+                    <li><a href="{% url 'services' %}">Services</a></li>
+                    <li><a href="{% url 'about_us' %}">About</a></li>
+                    <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                </ul>
+
+                <a href="#" data-toggle="collapse" data-target="#main-navbar"
+                    class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="hero page-inner overlay underlay-1">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-9 text-center mt-5">
+                <h1 class="heading" data-aos="fade-up">Apply for Agent</h1>
+
+                <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
+                    <ol class="breadcrumb text-center justify-content-center">
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'frontindex' %}">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active text-white-50" aria-current="page">Apply Agent</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section section-4 bg-light">
+    <div class="container">
+        <div class="row align-items-center grid-box">
+            <div class="col-lg-12">
+                <h2 class="heading mb-4">Welcome and Join our Team as our Agent!!</h2>
+                <p class="meta mb-2">
+                    Are you passionate about real estate and eager to make your mark in a dynamic industry? <br>
+                    We’re expanding our team of dedicated real estate agents and we want you to be a part of
+                    our success story!
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
+                <form action="{% url 'save_applied_agent' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row application-row">
+                        <div class="col-4 mb-3">
+                            <label class="form-control-label">Name</label>
+                            <input type="text" name="name" class="form-control-input" placeholder="Your Name">
+                        </div>
+
+                        <div class="col-4 mb-3">
+                            <label class="form-control-label">Email</label>
+                            <input type="email" name="email" class="form-control-input" required="required"
+                                placeholder="Your Email ID">
+                        </div>
+
+                        <div class="col-4 mb-3">
+                            <label class="form-control-label">Mobile (Whatsapp linked Only)</label>
+                            <input type="tel" name="phone" class="form-control-input" required="required"
+                                placeholder="Your Whatsapp linked Mobile Number">
+                        </div>
+
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary send-btn">
+                                <span class="text-uppercase">Send Request</span>
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </div>
+
+                        <div class="col-4 d-none">
+                            <input type="text" name="applicant" class="form-control-input" value="User">
+                        </div>
+
+                        <p class="text-justify font-weight-bold meta mt-4">
+                            <span class="text-primary">NB:</span> It typically takes 04 to 14 working days to process
+                            your request. Our team will review your submission thoroughly and get in touch with you via
+                            the contact number or email address you provided. Once we have verified your details, they
+                            will be updated on our website interface. Should you have any questions or need further
+                            assistance during this process, please do not hesitate to reach out to us. For further
+                            questions, <span class="font-bold">Call<a href="tel:1800562562" class="meta"
+                                    target="_blank">
+                                    <i class="fa-solid fa-phone"></i> 1800-562-562</a>
+                            </span>
+                        </p>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="section section-4 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+                <img src="{% static 'images/img_agt_1.jpg' %}" alt="Image" class="img-fluid">
+            </div>
+
+            <div class="col-md-4 mt-lg-5" data-aos="fade-up" data-aos-delay="100">
+                <a href="https://tolucafc.com/estadio-nemesio/" class="meta" target="_blank">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Estadio Nemesio Díez Stadium, Mexico</span>
+                    <img src="{% static 'images/img_agt_2.jpg' %}" alt="Image" class="img-fluid">
+                </a>
+            </div>
+
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <img src="{% static 'images/img_agt_3.jpg' %}" alt="Image" class="img-fluid">
+            </div>
+        </div>
+
+        <div class="row section-counter mt-5">
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="counter-wrap mb-5 mb-lg-0">
+                    <span class="number"><span class="countup text-primary">3298</span></span>
+                    <span class="caption text-black-50"># of Buy Properties</span>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                <div class="counter-wrap mb-5 mb-lg-0">
+                    <span class="number"><span class="countup text-primary">2181</span></span>
+                    <span class="caption text-black-50"># of Sell Properties</span>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="500">
+                <div class="counter-wrap mb-5 mb-lg-0">
+                    <span class="number"><span class="countup text-primary">9316</span></span>
+                    <span class="caption text-black-50"># of All Properties</span>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="600">
+                <div class="counter-wrap mb-5 mb-lg-0">
+                    <span class="number"><span class="countup text-primary">7191</span></span>
+                    <span class="caption text-black-50"># of Agents</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .application-row .form-control:focus {
+        outline: none;
+    }
+</style>
+
+{% endblock %}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+<title>Careers</title>
+{% endblock %}
+
+{% block content %}
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
+
+<nav class="site-nav">
+    <div class="container">
+        <div class="menu-bg-wrap">
+            <div class="site-navigation">
+                <a href="{% url 'frontindex' %}">
+                    <img src="{% static 'logo/nav-logo-light.png' %}" alt="Logo" class="nav-logo">
+                </a>
+
+                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                    <li><a href="{% url 'frontindex' %}">Home</a></li>
+                    <li><a href="{% url 'view_all' %}">Grounds</a></li>
+                    <li><a href="{% url 'services' %}">Services</a></li>
+                    <li><a href="{% url 'about_us' %}">About</a></li>
+                    <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                </ul>
+
+                <a href="#" data-toggle="collapse" data-target="#main-navbar"
+                    class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="hero page-inner overlay underlay-1">
+
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-9 text-center mt-5">
+                <h1 class="heading" data-aos="fade-up">Careers</h1>
+
+                <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
+                    <ol class="breadcrumb text-center justify-content-center">
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'frontindex' %}">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active text-white-50" aria-current="page">Careers</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section bg-white">
+    <div class="container">
+        <div class="row mb-5 align-items-center">
+            <div class="col-lg-9 text-center mx-auto">
+                <h2 class="heading">Join Our Growing Team of Excellent Professionals !!</h2>
+            </div>
+            <div class="col-lg-12 mt-3">
+                <p class="meta mb-2">
+                    Welcome to our Careers page! At <span class="text-primary font-600">findmyfield.com</span>, we’re
+                    more than just a workplace—we’re a community of innovators, creators, and dedicated professionals
+                    committed to making a difference. Our team is our greatest asset, and we're always on the lookout
+                    for passionate individuals to join us in driving our mission forward.
+                </p>
+                <p class="meta">
+                    Here, you'll find exciting opportunities to grow your career in a supportive and dynamic
+                    environment. Explore our current job openings, learn about our company culture, and discover what
+                    makes working with us a unique and rewarding experience.
+                </p>
+            </div>
+            <div class="col-lg-6 careers-grid">
+                <h6 class="text-primary text-uppercase mb-3">Email Us:</h6>
+                <i class="icon-envelope careers-icon-info"></i>
+                <a href="mailto:careers@findmyfield.com">
+                    <span class="zeta font-500">careers@findmyfield.com,</span>
+                </a>
+                <a href="mailto:hr@findmyfield.com">
+                    <span class="zeta font-500">hr@findmyfield.com</span>
+                </a>
+            </div>
+            <div class="col-lg-6 careers-grid">
+                <h6 class="text-primary text-uppercase mb-3">Reach Us:</h6>
+                <i class="icon-phone careers-icon-info"></i>
+                <a href="tel:04342852686">
+                    <span class="zeta font-500">0434-285 2686,</span>
+                </a>
+                <a href="tel:919847568568">
+                    <span class="zeta font-500">+91-9847 568 568</span>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            {% for i in career %}
+            <div class="col-6 col-lg-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                <div class="box-feature career-feature mb-4">
+                    <h4>{{i.name}}</h4>
+                    <p>Posted Date: <span>{{i.posted_date}}</span></p>
+                    <div class="box-feature-button">
+                        <a href="{% url 'careers_filtered' career_name=i.name %}" class="learn-more" target="_blank">
+                            <span class="text-golden text-uppercase font-600">Apply Now</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+<title>About Us</title>
+{% endblock %}
+
+{% block content %}
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
+
+<nav class="site-nav">
+    <div class="container">
+        <div class="menu-bg-wrap">
+            <div class="site-navigation">
+                <a href="{% url 'frontindex' %}">
+                    <img src="{% static 'logo/nav-logo-light.png' %}" alt="Logo" class="nav-logo">
+                </a>
+
+                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                    <li><a href="{% url 'frontindex' %}">Home</a></li>
+                    <li><a href="{% url 'view_all' %}">Grounds</a></li>
+                    <li><a href="{% url 'services' %}">Services</a></li>
+                    <li class="active"><a href="{% url 'about_us' %}">About</a></li>
+                    <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                </ul>
+
+                <a href="#" data-toggle="collapse" data-target="#main-navbar"
+                    class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="hero page-inner overlay overlay-3">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-9 text-center mt-5">
+                <h1 class="heading" data-aos="fade-up">About</h1>
+
+                <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
+                    <ol class="breadcrumb text-center justify-content-center">
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'frontindex' %}">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active text-white-50" aria-current="page">About</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <div class="row mb-5 align-items-center">
+            <div class="col-lg-6 text-center mx-auto">
+                <h2 class="font-weight-bold text-primary heading">About Us</h2>
+            </div>
+        </div>
+
+        <div class="row text-left mb-5">
+            <div class="col-lg-6">
+                <div class="col-12">
+                    <h5 class="font-weight-bold heading text-primary text-uppercase mb-4">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <span>Our Mission</span>
+                    </h5>
+                </div>
+
+                <p class="meta text-justify">
+                    At Rentium, our Mission is to revolutionize the stadium booking experience by delivering
+                    unparalleled service, efficiency, and flexibility through innovative solutions, exceptional
+                    customer care, and a commitment to excellence.
+                </p>
+
+                <p class="meta text-justify">
+                    We are dedicated to connecting event organizers with world-class venues, ensuring seamless
+                    planning and execution of memorable events. we strive to make every event a success and
+                    every venue a standout choice.
+                </p>
+
+                <p class="meta text-justify">
+                    We aim to simplify the booking process, enhance operational efficiency, and ensure a top-notch
+                    experience for both venue managers and event planners. Through innovative technology and
+                    exceptional customer support, Rentium is dedicated to transforming venue management and helping
+                    our clients create memorable events.
+                </p>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="col-12">
+                    <h5 class="font-weight-bold heading text-primary text-uppercase mb-4">
+                        <i class="fa-regular fa-lightbulb"></i>
+                        <span>Our Vision</span>
+                    </h5>
+                </div>
+
+                <p class="meta text-justify">
+                    To be the leading global platform for stadium and venue bookings, setting the standard for
+                    innovation, accessibility, and excellence in event management. Empower event organizers to
+                    create extraordinary experiences and support venue operators in maximizing their potential and
+                    efficiency.
+                </p>
+
+                <p class="meta text-justify">
+                    We envision a future where our technology and expertise enable organizers to create
+                    extraordinary experiences effortlessly, and where every venue we represent becomes the premier
+                    choice for unforgettable events.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section pt-0">
+    <div class="container">
+        <div class="row justify-content-between mb-5">
+            <div class="col-lg-7 mb-5 mb-lg-0 order-lg-2">
+                <div class="img-about dots">
+                    <a href="https://www.fcbarcelona.com/en/club/facilities/spotify-camp-nou/" target="_blank">
+                        <i class="fa-solid fa-location-dot meta"></i>
+                        <span class="meta">Spotify Camp Nou, Barcelona, Spain</span>
+                        <img src="{% static 'images/about_1.jpg' %}" alt="Image" class="img-fluid">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="d-flex feature-h">
+                    <span class="wrap-icon me-3">
+                        <span class="icon-home2"></span>
+                    </span>
+                    <div class="feature-text">
+                        <h3 class="heading">Quality properties</h3>
+                        <p class="text-black-50">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Nostrum iste.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="d-flex feature-h">
+                    <span class="wrap-icon me-3">
+                        <span class="icon-person"></span>
+                    </span>
+                    <div class="feature-text">
+                        <h3 class="heading">Top rated agents</h3>
+                        <p class="text-black-50">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Nostrum iste.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="d-flex feature-h">
+                    <span class="wrap-icon me-3">
+                        <span class="icon-security"></span>
+                    </span>
+                    <div class="feature-text">
+                        <h3 class="heading">Easy and safe</h3>
+                        <p class="text-black-50">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Nostrum iste.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section pt-0">
+    <div class="container">
+        <div class="row justify-content-between mb-5">
+            <div class="col-lg-7 mb-5 mb-lg-0">
+                <div class="img-about dots">
+                    <a href="https://keralablastersfc.in/home-stadium/" target="_blank">
+                        <i class="fa-solid fa-location-dot meta"></i>
+                        <span class="meta">JLN International Stadium, Kochi, India</span>
+                        <img src="{% static 'images/about_2.jpeg' %}" alt="Image" class="img-fluid">
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="d-flex feature-h">
+                    <span class="wrap-icon me-3">
+                        <span class="icon-home2"></span>
+                    </span>
+                    <div class="feature-text">
+                        <h3 class="heading">Quality properties</h3>
+                        <p class="text-black-50">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Nostrum iste.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="d-flex feature-h">
+                    <span class="wrap-icon me-3">
+                        <span class="icon-person"></span>
+                    </span>
+                    <div class="feature-text">
+                        <h3 class="heading">Top rated agents</h3>
+                        <p class="text-black-50">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Nostrum iste.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="d-flex feature-h">
+                    <span class="wrap-icon me-3">
+                        <span class="icon-security"></span>
+                    </span>
+                    <div class="feature-text">
+                        <h3 class="heading">Easy and safe</h3>
+                        <p class="text-black-50">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Nostrum iste.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+                <img src="{% static 'images/img_std_1.jpg' %}" alt="Image" class="img-fluid">
+            </div>
+
+            <div class="col-md-4 mt-lg-5" data-aos="fade-up" data-aos-delay="100">
+                <a href="https://en.wikipedia.org/wiki/S%C3%B8r_Arena/" target="_blank">
+                    <i class="fa-solid fa-location-dot meta"></i>
+                    <span class="meta">Sparebanken Sør Arena, Norway</span>
+                    <img src="{% static 'images/img_std_2.jpg' %}" alt="Image" class="img-fluid">
+                </a>
+            </div>
+
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <img src="{% static 'images/img_std_3.jpg' %}" alt="Image" class="img-fluid">
+            </div>
+        </div>
+
+        <div class="row section-counter my-5">
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="counter-wrap mb-5 mb-lg-0">
+                    <span class="number"><span class="countup text-primary">2917</span></span>
+                    <span class="caption text-black-50"># of Buy Properties</span>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                <div class="counter-wrap mb-5 mb-lg-0">
+                    <span class="number"><span class="countup text-primary">3918</span></span>
+                    <span class="caption text-black-50"># of Sell Properties</span>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="500">
+                <div class="counter-wrap mb-5 mb-lg-0">
+                    <span class="number"><span class="countup text-primary">38928</span></span>
+                    <span class="caption text-black-50"># of All Properties</span>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="600">
+                <div class="counter-wrap mb-5 mb-lg-0">
+                    <span class="number"><span class="countup text-primary">1291</span></span>
+                    <span class="caption text-black-50"># of Agents</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section sec-testimonials bg-light">
+    <div class="container">
+        <div class="row mb-5 align-items-center">
+            <div class="col-md-6">
+                <h2 class="font-weight-bold heading text-primary mb-4 mb-md-0">
+                    <span>Our Esteemed Group</span>
+                </h2>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <div id="testimonial-nav">
+                    <span class="prev" data-controls="prev">Prev</span>
+
+                    <span class="next" data-controls="next">Next</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4"></div>
+        </div>
+        <div class="testimonial-slider-wrap">
+            <div class="testimonial-slider">
+
+                {% for i in agents %}
+                <div class="item">
+                    <div class="testimonial">
+                        <img src="{{i.image.url}}" alt="Image" class="img-fluid rounded-circle w-25 mb-4">
+                        <h3 class="h5 text-primary">{{i.name}}</h3>
+                        <p class="text-black-50">{{i.occupation}}</p>
+
+                        <p class="text-justify">{{i.description}}</p>
+
+                        <ul class="social list-unstyled list-inline dark-hover">
+                            <li class="list-inline-item">
+                                <a href="tel:{{i.phone}}" target="_blank">
+                                    <i class="fa-solid fa-phone social-icons"></i>
+                                </a>
+                            </li>
+
+                            <li class="list-inline-item">
+                                <a href="mailto:{{i.email}}" target="_blank">
+                                    <i class="fa-solid fa-envelope social-icons"></i>
+                                </a>
+                            </li>
+
+                            <li class="list-inline-item">
+                                <a href="{{i.Id_no}}" target="_blank">
+                                    <i class="fa-solid fa-id-card-clip social-icons"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+<title>{{stadium.name}}</title>
+{% endblock %}
+
+{% block content %}
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
+
+<nav class="site-nav">
+    <div class="container">
+        <div class="menu-bg-wrap">
+            <div class="site-navigation">
+                <a href="{% url 'frontindex' %}">
+                    <img src="{% static 'logo/nav-logo-light.png' %}" alt="Logo" class="nav-logo">
+                </a>
+
+                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                    <li><a href="{% url 'frontindex' %}">Home</a></li>
+                    <li><a href="{% url 'view_all' %}">Grounds</a></li>
+                    <li><a href="{% url 'services' %}">Services</a></li>
+                    <li><a href="{% url 'about_us' %}">About</a></li>
+                    <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                </ul>
+
+                <a href="#" data-toggle="collapse" data-target="#main-navbar"
+                    class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="hero page-inner overlay overlay-5">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-9 text-center mt-5">
+                <h1 class="heading" data-aos="fade-up">{{stadium.name}}</h1>
+
+                <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
+                    <ol class="breadcrumb text-center justify-content-center">
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'frontindex' %}">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'view_all' %}">All Grounds</a>
+                        </li>
+                        <li class="breadcrumb-item active text-white-50" aria-current="page">{{stadium.name}}</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-7">
+                <div class="img-property-slide-wrap">
+                    <div class="img-property-slide">
+                        <a href="{{stadium.image_1.url}}" title="View Image" target="_blank">
+                            <img src="{{stadium.image_1.url}}" alt="Image" class="img-fluid">
+                        </a>
+                        <a href="{{stadium.image_2.url}}" title="View Image" target="_blank">
+                            <img src="{{stadium.image_2.url}}" alt="Image" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <p class="meta">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span class="text-uppercase">{{stadium.country}}</span>
+                </p>
+                <h2 class="heading text-primary">{{stadium.name}}</h2>
+                <p class="sub-meta font-600">
+                    <i class="fa-solid fa-location-crosshairs"></i>
+                    <a href="{{stadium.map_link}}" target="_blank">{{stadium.address}}</a>
+                    <i class="fa-solid fa-up-right-from-square web-share"></i>
+                </p>
+
+                <div class="specs d-flex mb-3">
+                    <span class="d-block d-flex align-items-center me-3">
+                        <i class="fa-solid fa-users text-success"></i>
+                        <span class="text-success font-600 ml-1">{{stadium.capacity}}+</span>
+                    </span>
+                    <span class="d-block d-flex align-items-center">
+                        <i class="fa-solid fa-sack-dollar text-success"></i>
+                        <span class="text-success font-600 ml-1">₹{{stadium.rate}}/Day</span>
+                    </span>
+                </div>
+
+                <p class="meta">{{stadium.summary}}</p>
+
+                <div class="specs d-flex my-3">
+                    <span class="d-block d-flex align-items-center me-3">
+                        <i class="fa-solid fa-couch text-success"></i>
+                        <span class="font-600 text-success ml-1">{{stadium.suite}} Suites</span>
+                    </span>
+                    <span class="d-block d-flex align-items-center">
+                        <i class="fa-solid fa-link text-success"></i>
+                        <a href="{{stadium.web_link}}" target="_blank" title="{{stadium.web_link}}">
+                            <span class="font-600 text-success">stadium.com</span>
+                        </a>
+                    </span>
+                </div>
+
+                <div class="mt-4">
+                    <button class="btn btn-primary btn-show p-x">
+                        <i class="fa-solid fa-volleyball"></i>
+                        <span class="text-white">Book Now</span>
+                    </button>
+
+                    <button class="btn btn-primary btn-hide p-x">
+                        <i class="fa-solid fa-angles-left"></i>
+                    </button>
+
+                    <a href="{% url 'payment_redirect' stadium_name=stadium.name %}" class="btn btn-danger btn-hide p-x">
+                        <span>Pay ₹{{stadium.booking}}/- Now</span>
+                    </a>
+
+                    <a href="{% url 'agent_details' agent_name=stadium.agent %}" class="btn btn-golden p-x">
+                        <i class="fa-solid fa-user"></i>
+                        <span class="text-white">View Agent</span>
+                    </a>
+                </div>
+
+                <div class="btn-hide mt-3">
+                    <span class="text-accord-grid">NOTE:</span>
+                    <ol class="text-accord-grid text-justify">
+                        <li>
+                            To book the stadium, the customer must pay an advance by selecting the date and time. Once
+                            the advance is paid, the slot will be reserved for the chosen date and time. The customer
+                            must then contact the office and pay the remaining balance at least 12 hours before the
+                            scheduled date. If the remaining balance is not paid on time, only half of the advance will
+                            be refunded within 2 to 12 days from the cancellation date.
+                        </li>
+                        <li class="mt-1">
+                            Customers can cancel their booking up to 24 hours before the match to receive a 50% refund
+                            of the advance. Cancellations made within 24 hours of the match may result in no refund.
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

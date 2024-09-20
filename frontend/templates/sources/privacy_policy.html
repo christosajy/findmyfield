@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+<title>Privacy Policy</title>
+{% endblock %}
+
+{% block content %}
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
+
+<nav class="site-nav">
+    <div class="container">
+        <div class="menu-bg-wrap">
+            <div class="site-navigation">
+                <a href="{% url 'frontindex' %}">
+                    <img src="{% static 'logo/nav-logo-light.png' %}" alt="Logo" class="nav-logo">
+                </a>
+
+                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                    <li><a href="{% url 'frontindex' %}">Home</a></li>
+                    <li><a href="{% url 'view_all' %}">Grounds</a></li>
+                    <li><a href="{% url 'services' %}">Services</a></li>
+                    <li><a href="{% url 'about_us' %}">About</a></li>
+                    <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                </ul>
+
+                <a href="#" data-toggle="collapse" data-target="#main-navbar"
+                    class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="hero page-inner overlay underlay-1">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-9 text-center mt-5">
+                <h1 class="heading" data-aos="fade-up">Privacy Policy</h1>
+
+                <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
+                    <ol class="breadcrumb text-center justify-content-center">
+                        <li class="breadcrumb-item">
+                            <a href="{% url 'frontindex' %}">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active text-white-50" aria-current="page">Privacy Policy</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
+                <div class="contact-info">
+                    <div class="address mt-2">
+                        <i class="icon-room"></i>
+                        <h4 class="mb-2">Location:</h4>
+                        <a href="https://maps.app.goo.gl/psMMSpt9QfDk7zfp6" target="_blank">
+                            <p class="meta">
+                                <span>Near Civil Station, Kakkanad,</span> <br>
+                                <span> Kochi, Kerala, India</span>
+                            </p>
+                        </a>
+                    </div>
+
+                    <div class="open-hours mt-4">
+                        <i class="icon-clock-o"></i>
+                        <h4 class="mb-2">Open Hours:</h4>
+                        <p class="meta">
+                            <span>Monday - Saturday:</span> <br>
+                            <span>10:00 AM - 06:00 PM</span>
+                        </p>
+                    </div>
+
+                    <div class="email mt-4">
+                        <i class="icon-envelope"></i>
+                        <h4 class="mb-2">Email:</h4>
+                        <a href="mailto:rentiumindia@gmail.com" title="Email Rentium India">
+                            <p class="meta">rentiumindia@gmail.com,</p>
+                        </a>
+                        <a href="mailto:rentiumglobal@business.org" title="Email Rentium Global">
+                            <p class="meta">rentiumglobal@business.org</p>
+                        </a>
+                    </div>
+
+                    <div class="phone mt-4">
+                        <i class="icon-phone"></i>
+                        <h4 class="mb-2">Call:</h4>
+                        <a href="tel:+919947562562" title="Call +91-9947562562">
+                            <p class="meta">Tel: +91-9947 562 562,</p>
+                        </a>
+                        <a href="tel:+911800562562" title="Call Our Toll Free Number">
+                            <p class="meta">Toll Free: 1800-562-562</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-tm-6 col-lg-6">
+                <div class="liability-section col-12">
+                    <h4>Our Privacy Policy</h4>
+                    <p class="privacy-left mb-3">Effective starting: May 17, 2024</p>
+                </div>
+                <hr>
+
+                <div class="liability-section col-12">
+                    <h5>What this policy covers</h5>
+                    <p class="meta mt-3">
+                        We value your privacy and are committed to protecting your personal information. This Privacy
+                        Policy outlines how we collect, use, and safeguard your data when you use our website. Your
+                        privacy is important to us, and so is being transparent about how we collect, use, and share
+                        information about you. This policy is intended to help you understand:
+                    </p>
+                </div>
+
+                <div class="liability-section col-12">
+                    <h5 class="mb-3">Information We Collect</h5>
+                    <p class="meta">We may collect the following types of information:</p>
+                    <ol>
+                        <li class="p-info-li mb-3">
+                            <p class="meta">Personal Informations; such as:</p>
+                            <ul>
+                                <li class="meta">Name</li>
+                                <li class="meta">Email address</li>
+                                <li class="meta">Phone number</li>
+                                <li class="meta">Billing information (including credit card details)</li>
+                                <li class="meta">Address</li>
+                            </ul>
+                        </li>
+                        <li class="p-info-li">
+                            <p class="meta">Non Personal Informations; such as:</p>
+                            <ul>
+                                <li class="meta">IP Address</li>
+                                <li class="meta">Browser Type</li>
+                                <li class="meta">Device Information</li>
+                                <li class="meta">Cookies and Usage data</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="liability-section col-12">
+                    <h5 class="mb-3">How We Use Your Information</h5>
+                    <p class="meta">We may use your information for the following purposes:</p>
+                    <ul class="p-usage-li">
+                        <li class="meta">To process and manage your bookings</li>
+                        <li class="meta">To communicate with you regarding your bookings or inquiries</li>
+                        <li class="meta">To send promotional emails (only if you opt-in)</li>
+                        <li class="meta">To improve our website and services</li>
+                        <li class="meta">To comply with legal obligations</li>
+                        <li class="meta">To prevent and detect fraud</li>
+                    </ul>
+                </div>
+
+                <div class="liability-section col-12">
+                    <h5 class="mb-3">Cookies and Tracking Technologies</h5>
+                    <p class="meta">
+                        We use cookies and similar tracking technologies to enhance your experience on our
+                        Site. Cookies help us understand how you use our Site, allowing us to personalize content and
+                        advertisements. You can manage your cookie preferences through your browser settings.
+                    </p>
+                </div>
+
+                <div class="liability-section col-12">
+                    <h5 class="mb-3">Sharing Your Information</h5>
+                    <p class="meta">
+                        We do not sell or share your personal information with third parties except in the
+                        following cases:
+                    </p>
+                    <ul class="p-usage-li">
+                        <li class="meta">With service providers who assist us in operating the Site and delivering
+                            services (e.g., payment processors, hosting providers)</li>
+                        <li class="meta">When required by law or to protect our rights</li>
+                        <li class="meta">With your consent</li>
+                    </ul>
+                </div>
+
+                <div class="liability-section col-12">
+                    <h5 class="mb-3">Data Security</h5>
+                    <p class="meta">
+                        We implement appropriate technical and organizational measures to protect your data from
+                        unauthorized access, alteration, disclosure, or destruction. However, no method of transmission
+                        over the internet is 100% secure, and we cannot guarantee absolute security.
+                    </p>
+                </div>
+
+                <div class="liability-section col-12">
+                    <h5 class="mb-3">Your Rights</h5>
+                    <p class="meta">You have the following rights regarding your personal information:</p>
+                    <ul class="p-usage-li">
+                        <li class="meta">
+                            <span class="font-600">Access:</span>
+                            You can request access to the personal data we hold about you.
+                        </li>
+                        <li class="meta">
+                            <span class="font-600">Correction:</span>
+                            You can request the correction of inaccurate information.
+                        </li>
+                        <li class="meta">
+                            <span class="font-600">Deletion:</span>
+                            You can request the deletion of your personal data.
+                        </li>
+                        <li class="meta">
+                            <span class="font-600">Opt-out:</span>
+                            You can opt out of receiving promotional communications.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="liability-section col-12">
+                    <h5 class="mb-3">Third-Party Links</h5>
+                    <p class="meta">
+                        Our Site may contain links to third-party websites. We are not responsible for the privacy
+                        practices of these websites. We encourage you to review their privacy policies before providing
+                        any personal information.
+                    </p>
+                </div>
+
+                <div class="liability-section col-12">
+                    <h5 class="mb-3">Changes to This Privacy Policy</h5>
+                    <p class="meta">
+                        We may update this Privacy Policy from time to time. We will notify you of any changes by
+                        posting the new Privacy Policy on this page. Changes become effective immediately upon posting.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

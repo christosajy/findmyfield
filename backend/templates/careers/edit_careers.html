@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+{% extends 'admin.html' %}
+{% load static %}
+{% block content %}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">EDIT CAREERS</h4>
+            <form class="form-sample" method="POST" action="{% url 'update_careers' career_id=career.id %}">
+                {% csrf_token %}
+                <p class="card-description">Edit all added Job Openings</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Career Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-sector" name="name" value="{{career.name}}"
+                                    required="required" placeholder="Career or Job Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Experience</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-sector" name="experience" value="{{career.experience}}"
+                                    required="required" placeholder="xx to xx [Eg: 02-12]">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Posted Date</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-sector" name="p_date" required="required"
+                                    value="{{career.posted_date}}" placeholder="DD-MM-YYYY/DD-MONTH-YYYY">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Closing Date</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-sector" name="c_date" required="required"
+                                    value="{{career.closing_date}}" placeholder="DD-MM-YYYY/DD-MONTH-YYYY">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Salary(₹)</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-sector" name="salary" value="{{career.salary}}"
+                                    required="required" placeholder="₹xxxxx - ₹xxxxx [Include Symbol; Eg: ₹]">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Place</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-sector" name="place" value="{{career.place}}"
+                                    required="required" placeholder="Place of Work">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Requirements</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-sector" name="requirements" required="required"
+                                    placeholder="Requirements or Qualifications"
+                                    style="height: 10rem;">{{career.requirements}}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Description</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-sector" name="description" required="required"
+                                    placeholder="Description Regarding Career"
+                                    style="height: 10rem;">{{career.description}}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-info mr-2">
+                        <i class="fa-solid fa-square-check"></i>
+                        <span>SUBMIT</span>
+                    </button>
+
+                    <button class="btn btn-danger" type="reset">
+                        <i class="fa-solid fa-square-xmark"></i>
+                        <span>CANCEL</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

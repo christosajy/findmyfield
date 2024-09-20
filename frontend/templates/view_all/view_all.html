@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+<title>View All</title>
+{% endblock %}
+
+{% block content %}
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
+
+<nav class="site-nav">
+    <div class="container">
+        <div class="menu-bg-wrap">
+            <div class="site-navigation">
+                <a href="{% url 'frontindex' %}">
+                    <img src="{% static 'logo/nav-logo-light.png' %}" alt="Logo" class="nav-logo">
+                </a>
+
+                <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                    <li><a href="{% url 'frontindex' %}">Home</a></li>
+                    <li class="active"><a href="{% url 'view_all' %}">Grounds</a></li>
+                    <li><a href="{% url 'services' %}">Services</a></li>
+                    <li><a href="{% url 'about_us' %}">About</a></li>
+                    <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
+                </ul>
+
+                <a href="#" data-toggle="collapse" data-target="#main-navbar"
+                    class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none">
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="hero page-inner overlay overlay-3">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-9 text-center mt-5">
+                <h1 class="heading" data-aos="fade-up">All Grounds</h1>
+
+                <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="200">
+                    <ol class="breadcrumb text-center justify-content-center">
+                        <li class="breadcrumb-item"><a href="{% url 'frontindex' %}">Home</a></li>
+                        <li class="breadcrumb-item active text-white-50" aria-current="page">Grounds</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section section-properties">
+    <div class="container">
+        <div class="row mb-5 align-items-center">
+            <div class="col-lg-6">
+                <h2 class="font-weight-bold text-primary heading">All Grounds and Arenas</h2>
+            </div>
+            <div class="col-lg-6 text-lg-end">
+                <form action="" method="GET">
+                    <input type="text" class="section-properties-input px-3" name="keyword" autocomplete="off"
+                        placeholder="Your Stadium or City. e.g. New York">
+                    <button type="submit" class="section-properties-btn text-white px-3">
+                        <i class="fa-solid fa-magnifying-glass"></i><span>Search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            {% for i in ground %}
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <div class="property-item mb-30">
+                    <!-- <div class="specs d-flex top-flexbar mb-2">
+                        <span class="d-block d-flex align-items-center me-3">
+                            <i class="fa-solid fa-location-dot text-dark me-2"></i>
+                            <span class="text-dark">{{i.country}}</span>
+                        </span>
+                    </div> -->
+
+                    <div class="img">
+                        <img src="{{i.image_1.url}}" alt="Image" class="img-fluid">
+                    </div>
+
+                    <div class="property-content">
+                        <div class="price mb-2">
+                            <span>From ₹{{i.rate}}/Day</span>
+                        </div>
+
+                        <div class="col">
+                            <span class="d-block text-dark font-600 mb-2">{{i.address}}</span>
+                            <span class="city d-block mb-3">{{i.name}}</span>
+
+                            <div class="specs d-flex mb-4">
+                                <span class="d-block d-flex align-items-center me-3" title="Capacity">
+                                    <i class="fa-solid fa-users grid-icon me-1"></i>
+                                    <span class="caption font-600">{{i.capacity}}</span>
+                                </span>
+
+                                <span class="d-block d-flex align-items-center me-3" title="Place">
+                                    <i class="fa-solid fa-location-crosshairs me-1"></i>
+                                    <span class="caption font-600">{{i.locality}}</span>
+                                </span>
+
+                                <span class="d-block d-flex align-items-center" title="VIP Seats">
+                                    <i class="fa-solid fa-couch me-1"></i>
+                                    <span class="caption font-600">{{i.suite}} Seats</span>
+                                </span>
+                            </div>
+
+                            <a href="{% url 'see_details' stadium_name=i.name %}"
+                                class="btn btn-primary p-x">
+                                <i class="fa-solid fa-receipt"></i>
+                                <span>See details</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                <p class="text-danger text-record">
+                    <i class="fa-solid fa-ban"></i>
+                    <span>No Records Found</span>
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="row align-items-center py-5">
+            <div class="col-lg-3">Pagination (1 of 10)</div>
+            <div class="col-lg-6 text-center">
+                <div class="custom-pagination">
+                    <a href="#" class="active">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
